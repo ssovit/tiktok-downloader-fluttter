@@ -42,8 +42,8 @@ class _VideoState extends State<Video> {
         RaisedButton(
           child: Text("Download Video"),
           onPressed: () {
-            setDownloadStatus("Downloading video with watermark");
-            Downloader.download(
+            setDownloadStatus("Downloading.. please wait");
+            Downloader(
               widget._videoData['video']['playAddr'],
               widget._videoData['id'] + '.mp4',
               setDownloadStatus,
@@ -54,7 +54,7 @@ class _VideoState extends State<Video> {
           child: Text("Download Video (No Watermark)"),
           onPressed: () {
             setDownloadStatus("Downloading video without watermark");
-            Downloader.download(
+            Downloader(
               widget._videoData['video']['noWatermark'],
               widget._videoData['id'] + 'no-watermark.mp4',
               setDownloadStatus,

@@ -13,9 +13,10 @@ class SearchBar extends StatelessWidget {
         decoration: InputDecoration(
           hintText: "Enter TikTok video url",
         ),
+        // TODO: Integrate full screen adverisements
+        // TODO: Add a loading icon
         onFieldSubmitted: (val) {
-          // Probably a good time to display an advert as processing cal take a while
-          // TODO : Integrate full screen adverisements
+          // Probably a good time to display an advert as processing cal take a couple of seconds to process url results via API
           inputHandler(val);
         },
       ),

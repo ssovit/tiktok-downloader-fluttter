@@ -1,14 +1,12 @@
 import 'dart:io';
 
-import 'package:dio/dio.dart';
-import 'package:gallery_saver/gallery_saver.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:gallery_saver/gallery_saver.dart';
+import 'package:dio/dio.dart';
 
 class Downloader {
-  static void download(
-      String fileUrl, String filename, Function statusHandler) async {
+  void download(String fileUrl, String filename, Function statusHandler) async {
     if (fileUrl != "") {
-      print("Downloading: $fileUrl");
       Directory tmpDir = await getTemporaryDirectory();
       final String tmpFile = tmpDir.path + "/$filename";
       // Download remote file using Dio to temporary directory
@@ -27,5 +25,9 @@ class Downloader {
       print("Saved video to gallery");
       statusHandler("Download Complete");
     }
+  }
+
+  Downloader(String fileUrl, String filename, Function statusHandler) {
+    download(fileUrl, filename, statusHandler);
   }
 }
